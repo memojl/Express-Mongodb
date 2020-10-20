@@ -1,0 +1,24 @@
+{
+  "name": "Express-Mongodb",
+  "version": "1.0.0",
+  "description": "Desarrollo de crud con Express y MongoDB Cloud",
+  "main": "app.js",
+  "scripts": {
+    "star": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memojl/Express-Mongodb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/memojl/Express-Mongodb/issues"
+  },
+  "homepage": "https://github.com/memojl/Express-Mongodb#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
