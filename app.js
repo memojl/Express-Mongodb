@@ -9,6 +9,7 @@ app.use((req,res,next)=>{
    res.status(404).sendFile(__dirname + '/public/404.html');
 }); 
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Our app is running on port ${ PORT }`);
 });
