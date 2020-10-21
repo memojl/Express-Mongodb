@@ -6,3 +6,6 @@ Desarrollo de crud con Express y MongoDB Cloud
 2. Instalar nodemon de forma global [ npm install -g nodemon ]
 3. Instalar Express [ npm i express ]
 4. Instalar EJS [ npm i ejs ]
+5. Instalar Mongoose [ npm i mongoose ]
+6. Instalar Dotenv [ npm install dotenv ]
+7. Instalar body-parser [ npm i body-parser ]
