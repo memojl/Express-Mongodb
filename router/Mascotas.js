@@ -1,27 +1,18 @@
 const express = require('express');
 const router = express.Router();
-
 const Mascota = require('../models/mascota');
 
 router.get('/', async (req, res)=>{
     try {
         const arrayMascotasDB = await Mascota.find();
-        //console.log(arrayMascotasDB);
-
         res.render('mascotas',{
             arrayMascotas: arrayMascotasDB
-            //arrayMascotas: [
-            //    { id: 'bhsgdshxx', nombre: 'Gato', descripcion: 'Gato descripcion'},
-            //    { id: 'hdgdsgdsh', nombre: 'Perro', descripcion: 'Perro descripcion'}
-            //]
-          });
+        });
       
     } catch (error) {
         console.log(error);
     }
-
 });
-
 
 //FORMULARIO
 router.get('/crear', (req, res)=>{
@@ -74,11 +65,9 @@ router.delete('/:id', async(req,res)=>{
                 mensaje: 'Fallo eliminado!'
             })
         }
-
     } catch (error) {
         console.log(error)
     }
-
 })
 
 //Editar
@@ -88,13 +77,11 @@ router.put('/:id', async(req,res)=>{
 
     try {
         const mascotaDB = await Mascota.findByIdAndUpdate(id, body, {useFindAndModify: false})
-        console.log(mascotaDB)
-        
+        console.log(mascotaDB)        
         res.json({
             estado: true,
             mensaje: 'Editado'
-        })
-        
+        })        
     } catch (error) {
         console.log(error)
     }
