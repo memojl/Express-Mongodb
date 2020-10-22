@@ -1,4 +1,5 @@
 const express = require('express');
+const nodemailer = require('nodemailer');//
 const router = express.Router();
 
 router.get('/',(req, res)=>{
@@ -15,6 +16,42 @@ router.get('/servicios',(req, res)=>{
 
 router.get('/contacto',(req, res)=>{
   res.render('contacto',{titulo: 'Contacto'});
+});
+
+router.post('/send', async(req, res)=>{
+  const { nombre, email, tel, msj } = req.body; 
+  contentHTML = `
+    <h1>Información de contacto</h1>
+    <ul>
+      <li>${nombre}</li>
+      <li>${email}</li>
+      <li>${tel}</li>
+    </ul>
+    <p>${msj}</p>
+  `;
+  
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.office365.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: 'multiportal@outlook.com', // generated ethereal user
+      pass: 'karmatron790408x', // generated ethereal password
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  const info = await transporter.sendMail({
+    from: "'Multiportal' <multiportal@outlook.com>",
+    to: 'memojl08@gmail.com',
+    subject: 'Correo de Contacto',
+    text: contentHTML
+  });
+  console.log('Mensaje enviado', info.messageId);
+  res.redirect('/success.html');
 });
 
 module.exports = router;
