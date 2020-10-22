@@ -39,10 +39,8 @@ router.post('/send', async(req, res)=>{
     auth: {
       user: process.env.MAIL_USER, // generated ethereal user
       pass: process.env.MAIL_PASS, // generated ethereal password
-    }/*,
-    tls: {
-      rejectUnauthorized: false
-    }*/
+    },
+    tls: {rejectUnauthorized: false}
   });
 
   const info = await transporter.sendMail({
@@ -51,6 +49,7 @@ router.post('/send', async(req, res)=>{
     subject: 'Correo de Contacto',
     html: contentHTML
   });
+  
   console.log('Mensaje enviado', info.messageId);
   res.redirect('/success.html');
 });
