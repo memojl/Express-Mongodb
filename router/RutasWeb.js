@@ -48,7 +48,7 @@ router.post('/send', async(req, res)=>{
     from: "'Multiportal' <multiportal@outlook.com>",
     to: 'memojl08@gmail.com',
     subject: 'Correo de Contacto',
-    text: contentHTML
+    html: contentHTML
   });
   console.log('Mensaje enviado', info.messageId);
   res.redirect('/success.html');
