@@ -33,12 +33,12 @@ router.post('/send', async(req, res)=>{
   
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: MAIL_HOST,
-    port: MAIL_PORT,
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: MAIL_USER, // generated ethereal user
-      pass: MAIL_PASS, // generated ethereal password
+      user: process.env.MAIL_USER, // generated ethereal user
+      pass: process.env.MAIL_PASS, // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false
