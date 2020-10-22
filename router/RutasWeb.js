@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');//
 const router = express.Router();
+require('dotenv').config();
 
 router.get('/',(req, res)=>{
   res.render('index',{titulo: 'Mi titulo dinamico'});
@@ -32,12 +33,12 @@ router.post('/send', async(req, res)=>{
   
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "smtp.office365.com",
-    port: 587,
+    host: MAIL_HOST,
+    port: MAIL_PORT,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: 'multiportal@outlook.com', // generated ethereal user
-      pass: 'karmatron790408x', // generated ethereal password
+      user: MAIL_USER, // generated ethereal user
+      pass: MAIL_PASS, // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false
