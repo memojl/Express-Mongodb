@@ -22,7 +22,7 @@ router.get('/contacto',(req, res)=>{
 
 router.post('/send', async(req, res)=>{
   const { nombre, email, tel, msj } = req.body; 
-  contentHTML = `
+  let contentHTML = `
     <h1>Información de contacto</h1>
     <ul>
       <li>${nombre}</li>
