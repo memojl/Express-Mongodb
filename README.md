@@ -13,5 +13,7 @@ Desarrollo de crud con Express y MongoDB Cloud
 9. Para envio de correo instalar [ npm install nodemailer ]
 
 npm i express ejs mongoose bcrypt dotenv body-parser nodemailer
+
 npm i jsonwebtoken
+
 npm i @hapi/joi
